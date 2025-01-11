@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import useToggle from "./hooks/useToggle.ts";
@@ -7,6 +8,8 @@ import { productsMocks } from "./mocks";
 import "./App.css";
 
 function App() {
+  const navigate = useNavigate();
+
   const [count, setCount] = useState(0);
   const [showContent, setShowContent] = useToggle(true);
   const { items, setItems } = useLocalStorage("cars");
@@ -29,6 +32,7 @@ function App() {
             </a>
           </div>
           <h1>Vite + React</h1>
+          <button onClick={() => navigate("/inputs")}>nav to inputs</button>
           <div className="card">
             <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
             <p>
